@@ -1,23 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Timeline.css';
 import TimelineEvent from './TimelineEvent';
 
 const Timeline = (timelineEvents) => {
-  // console.log(timelineEvents)
   
-
-  const what = timelineEvents.events.map((timelineEvent, index) => {
+  const Events = timelineEvents.events.map((timelineEvent, index) => {
     return(
-    <li key={index}>
+    <div key={index}>
     <TimelineEvent person={timelineEvent.person}
     status={timelineEvent.status} timeStamp={timelineEvent.timeStamp}/>
-    </li>
+    </div>
     )
   });
 
-  // console.log(what);
+  return (
+    <div className="timeline">
+      {Events}
+    </div>
+  )
 
-  return what;
 }
+
+Timeline.propTypes = {
+  events: PropTypes.array.isRequired
+};
 
 export default Timeline;

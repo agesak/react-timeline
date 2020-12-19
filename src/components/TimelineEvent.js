@@ -1,18 +1,15 @@
 import React from 'react';
-import Timeline from './Timeline';
+import PropTypes from 'prop-types';
 import './TimelineEvent.css';
 import Timestamp from './Timestamp';
-import PropTypes from 'prop-types';
+
 
 const TimelineEvent = (props) => {
-
   return (
-  <div>
-    <ul>
-      <li>Person: {props.person}</li>
-      <li>Status: {props.status}</li>
-      <li>Timestamp: <Timestamp time={props.timeStamp}/></li>
-    </ul>
+  <div className="timeline-event">
+      <h3>{props.person}</h3>
+      <span><Timestamp time={props.timeStamp}/></span>
+      <p>{props.status}</p>
   </div>
   );
 };
